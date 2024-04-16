@@ -1,13 +1,22 @@
-Vue.createApp({
+const app = Vue.createApp({
   data() {
     return {
-      title:'喵呜'
+      name:'喵喵'
     }
   },
   template:`
-    <div>
-      喵呜喵呜喵呜喵呜
-      {{title}}
-    </div>
+    <div>{{name}}<qm/></div>
   `
-}).mount('#app')
+})
+
+app.component('qm',{
+  data() {
+    return {
+      name:'qm'
+    }
+  },
+  template:`<h1 style="background-color:red">李启明</h1>`
+})
+const vm = app.mount("#app");
+
+console.log('vm',vm)
