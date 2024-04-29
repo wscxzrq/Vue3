@@ -25,7 +25,7 @@
     <br>
     <div>
       v-model 修饰符 
-      <moreModel v-model.toupper="modifier"/>
+      <modeImodifier v-model:title.toupper.substr="modifier"/>
       <h2>{{ modifier }}</h2>
     </div>
   </div>
@@ -33,11 +33,13 @@
 <script>
 import mmInput from './components/mmInput.vue'
 import moreModel from './components/moreModel.vue'
+import modeImodifier from './components/modeIModifier.vue'
 export default {
   name: "",
   components:{
     mmInput,
-    moreModel
+    moreModel,
+    modeImodifier
   },
   data () {
     return {
