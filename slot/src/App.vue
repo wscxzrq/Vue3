@@ -15,15 +15,24 @@
     <br>
 
     <h1>插槽传递数据</h1>
-    <div v-for="lesson in lessons" :key="lesson.id">
-      {{ lesson.title }}
-    </div>
+    <lesson v-for="lesson in lessons" :key="lesson.id" :lesson="lesson">
+
+      <template #icon="iconProps">
+        {{ iconProps }}
+        :)
+      </template>
+      <!-- 默认插槽 -->
+      <template #default="slotProps">
+        <button @click="del(slotProps.id)">删除</button>
+      </template>
+    </lesson> 
   </div>
 </template>
 <script>
 import card from './components/card.vue'
 import name from './components/name.vue'
 import lesson from './components/lesson.vue'
+import lessons from './index.js'
 export default {
   name: "",
   components:{
@@ -40,6 +49,11 @@ export default {
     loveMM() {
       // 插槽的作用域是使用该插槽的作用域决定的
       console.log('parent 爱你呦喵喵');
+    },
+    del(id) {
+      const index = this.lessons.findIndex(i => i.id == id)
+      console.log('index',index)
+      this.lessons.splice(index,1)
     }
   },
 };
