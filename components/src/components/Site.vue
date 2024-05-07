@@ -1,12 +1,11 @@
 <template>
   <card>
     <template #header>
-      微信
+      站点信息
     </template>
     <div>
-      <QM-Input title="姓名" v-model="appName"/>
-      <QM-Textarea title="QM文本域" v-model="appName" />
-      {{ appName }}
+      <QM-Input title="网站名称" v-model="config.site.title"/>
+      <QM-Textarea title="网站介绍" v-model="config.site.icp" />
     </div>
   </card>
 </template>
@@ -17,7 +16,6 @@ export default {
   inject:['config'],
   data() {
     return {
-      appName:'李喵喵'
     }
   }
 }

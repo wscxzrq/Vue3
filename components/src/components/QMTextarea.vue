@@ -1,13 +1,19 @@
 <template>
   <label>
     <div>{{ title }}</div>
-    <input  v-model="content" @update:model-value="update">
-    {{ webname.name }}
+    <textarea :rows="rows" v-model="content" @input="$emit('update:modelValue',$event.target.value)"></textarea>
   </label>
 </template>
 <script>
 export default {
-  props: ["title",'modelValue'],
+  props:{
+    title:String,
+    modelValue:String,
+    rows:{
+      type:Number,
+      default:10
+    }
+  },
   emits:['update:modelValue'],
   inject:['webname'],
   name: "",
@@ -16,16 +22,7 @@ export default {
       content:this.modelValue
     };
   },
-  watch:{
-    content(value) {
-      // console.log('value',value)
-      this.$emit('update:modelValue',value)
-    }
-  },
   methods: {
-    // update(val) {
-    //   this.$emit('update:modelValue',val)
-    // }
   },
 };
 </script>

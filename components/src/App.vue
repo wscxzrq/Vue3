@@ -7,24 +7,45 @@
     </div>
   </main>
   <component :is="currentComponent" />
+
+  <input type="text" v-model="spouseObj.name">
+  {{ spouseObj.name }}
 </template>
 <script>
 import Weixin from './components/Weixin.vue'
 import Pay from './components/Pay.vue'
+import Site from './components/Site.vue'
+import config from './config'
+import {computed} from 'vue'
 export default {
   components:{
     Weixin,
-    Pay
+    Site
   },
-  provide:{
-    webname:'李喵喵'
+  // 传递一个静态的值
+  // provide:{
+  //   webname:'李喵喵爱你捏'
+  // },
+  // 传递 this 中的值
+  // provide() {
+  //   return {webname:this.spouse}
+  // },
+  // provide() {
+  //   return {webname:computed(() => this.spouse)}
+  // },
+  // 传递响应式对象
+  provide() {
+    return {webname:this.spouseObj,config:this.config}
   },
   data () {
-    return {
+    return {  
+      config,
+      spouse:'李喵喵爱你捏',
+      spouseObj:{name:'李喵喵'},
       currentComponent:'weixin',
       components:[
         {title:'微信管理',name:'weixin'},
-        {title:'在线支付',name:'pay'},
+        {title:'网站信息',name:'site'},
       ]
     };
   },
