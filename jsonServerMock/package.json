@@ -1,18 +1,14 @@
 {
-  "name": "jsonServerMock",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "jsonservermock",
+  "version": "1.0.0",
+  "description": "1. `npm install -g json-server` 全局安装json-server",
+  "main": "db.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "vue": "^3.4.21"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-vue": "^5.0.4",
-    "vite": "^5.2.0"
+    "mockjs": "^1.1.0"
   }
 }
