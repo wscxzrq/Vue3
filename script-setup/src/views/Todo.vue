@@ -1,21 +1,21 @@
 <template>
-  <div>
+  <div class="todo">
     <item class="item" v-for="todo of todos" :key="todo.id" :todo="todo"/>
   </div>
+  <Add />
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
 import Item from "../components/item.vue";
-const todos = ref([])
+import useTodo from './../composables/useTodo.js'
+import Add from '../components/Add.vue'
 
-onMounted(async () => {
-  todos.value = await fetch(`http://localhost:3000/news`).then(res => res.json())
-})
+const {todos,load} = useTodo()
+load()
 </script>
 
 <style lang="scss" scoped>
-div {
+div.todo {
   display: flex;
   flex-direction: column;
   .item {
