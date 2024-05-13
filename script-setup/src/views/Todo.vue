@@ -1,23 +1,25 @@
 <template>
-  <h2>李喵喵</h2>
-  <div>{{ todos }}</div>
+  <div>
+    <item class="item" v-for="todo of todos" :key="todo.id" :todo="todo"/>
+  </div>
 </template>
 
 <script setup>
 import { onMounted, ref } from 'vue'
+import Item from "../components/item.vue";
 const todos = ref([])
 
 onMounted(async () => {
-  todos.value = await fetch(`http://localhost:3000/news`).then(res => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => resolve(res.json()),2000)
-    })
-  })
+  todos.value = await fetch(`http://localhost:3000/news`).then(res => res.json())
 })
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 div {
-  color: #fff;
+  display: flex;
+  flex-direction: column;
+  .item {
+    margin-bottom: 10px;
+  }
 }
 </style>

@@ -11,8 +11,8 @@ module.exports = () => {
     data.news.push({
       id: i,
       title: Random.ctitle(5, 10),
-      content: Random.cparagraph(1, 5),
-      date: Random.date()
+      // content: Random.cparagraph(1, 5),
+      // date: Random.date()
     })
   }
   return data
