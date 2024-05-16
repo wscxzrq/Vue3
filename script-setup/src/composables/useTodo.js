@@ -2,7 +2,7 @@ import useRequest from './../composables/useRequest.js'
 import { ref,watch } from 'vue'
 
 const todos = ref([])
-let orderBy = ref('asc')
+let orderBy = ref('desc')
 
 export default () => {
   const request = useRequest()
@@ -18,6 +18,7 @@ export default () => {
   }
 
   const add = async (todo) => {
+    if(todo.title.trim() === '') return alert('不能为空')
     await request.post(todo)
     load()
   }

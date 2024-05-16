@@ -7,7 +7,7 @@ module.exports = () => {
     news:[]
   }
 
-  for(i = 0; i<5; i++) {
+  for(i = 0; i<0; i++) {
     data.news.push({
       id: i,
       title: Random.ctitle(5, 10),

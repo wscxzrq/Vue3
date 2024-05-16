@@ -1,5 +1,5 @@
 {
-  "name": "script-setup",
+  "name": "activelistanimate",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,9 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "gsap": "^3.12.5",
-    "mockjs": "^1.1.0",
-    "sass": "^1.77.0",
+    "animate.css": "^4.1.1",
+    "sass": "^1.77.1",
     "vue": "^3.4.21"
   },
   "devDependencies": {
